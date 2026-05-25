@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusConnect Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <aside class="sidebar">
+        <p class="eyebrow">TRUEAILAB RAG PROJECT</p>
+        <h1>CampusConnect<br />Assistant</h1>
+        <p class="intro">
+          Grounded answers for student portal services, powered by retrieval and
+          Gemini.
+        </p>
+        <section class="rag-card" aria-label="Retrieval workflow">
+          <h2>How answers are built</h2>
+          <div class="flow">
+            <span>Question</span>
+            <i></i>
+            <span>Embedding</span>
+            <i></i>
+            <span>Top-K context</span>
+            <i></i>
+            <span>Gemini answer</span>
+          </div>
+        </section>
+        <button id="new-chat-button" class="new-chat" type="button">New chat</button>
+      </aside>
+
+      <section class="chat-panel" aria-label="Chat assistant">
+        <header class="chat-header">
+          <div class="status-dot"></div>
+          <div>
+            <p class="header-title">Knowledge Base Assistant</p>
+            <p class="header-subtitle">Answers are checked against source documents</p>
+          </div>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite">
+          <article class="message assistant">
+            <div class="bubble">
+              Hello. I can help with registration, payments, exams, hostel leave,
+              library policies, profile updates, and technical support.
+            </div>
+          </article>
+          <div class="suggestions" id="suggestions">
+            <button type="button">How do I reset my password?</button>
+            <button type="button">Where can I get my hall ticket?</button>
+            <button type="button">How long can I borrow library books?</button>
+          </div>
+        </div>
+
+        <div id="loading" class="loading hidden" role="status">
+          <span></span><span></span><span></span>
+          Retrieving relevant information
+        </div>
+
+        <form id="chat-form" class="composer">
+          <label for="message-input" class="sr-only">Type a question</label>
+          <input
+            id="message-input"
+            autocomplete="off"
+            maxlength="2000"
+            placeholder="Ask a question about campus services..."
+            required
+          />
+          <button id="send-button" type="submit" aria-label="Send message">
+            <span>Send</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 11.2 20.7 3.3 13 21l-2.1-7.7L3 11.2Zm7.9 2.1 4.4-4.4" />
+            </svg>
+          </button>
+        </form>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Password Reset and Account Security",
+    "content": "Students can reset a forgotten CampusConnect password from the sign-in page by selecting Forgot Password. A reset link is sent to the registered university email address and expires after 30 minutes. After signing in, students can change their password from Profile > Security. Two-factor authentication can also be enabled from the Security page using an authenticator app."
+  },
+  {
+    "title": "Course Registration",
+    "content": "Course registration opens at 9:00 AM on the student's assigned registration date shown in Dashboard > Registration. Students may add open courses until the add/drop deadline. When a class is full, students can select Join Waitlist; waitlist offers remain valid for 24 hours before moving to the next student."
+  },
+  {
+    "title": "Tuition Payments and Receipts",
+    "content": "Tuition invoices are available in Finance > Invoices. Online payment options include credit card and net banking. After a successful payment, a downloadable receipt appears in Finance > Receipts within 15 minutes. Payment questions can be sent to accounts@campusconnect.edu with the student ID and invoice number."
+  },
+  {
+    "title": "Library Borrowing Policy",
+    "content": "Undergraduate students may borrow up to five books for 14 days. Postgraduate students may borrow up to eight books for 21 days. Books can be renewed once through Library > My Loans unless another user has placed a reservation. Overdue items incur a fine of 10 rupees per item per day."
+  },
+  {
+    "title": "Technical Support",
+    "content": "For portal errors, students should first clear browser cache and try the latest version of Chrome or Firefox. If the problem continues, raise a support ticket from Help > Create Ticket and attach a screenshot. Technical support operates Monday to Friday, 9:00 AM to 6:00 PM IST, and normally replies within one working day."
+  },
+  {
+    "title": "Exam Hall Tickets",
+    "content": "Hall tickets become available seven days before examinations under Academics > Examinations > Hall Ticket. Students must download and print the hall ticket and carry a valid college identity card to the examination hall. A hall ticket is not released when mandatory fee payments remain outstanding."
+  },
+  {
+    "title": "Hostel Leave Requests",
+    "content": "Hostel residents must submit overnight leave requests from Hostel > Leave Request at least 24 hours before departure. The request requires destination, contact number, departure time, and expected return time. Approval is shown in the portal and sent to the student's registered email."
+  },
+  {
+    "title": "Profile and Contact Updates",
+    "content": "Students can update their personal phone number and current address from Profile > Personal Details. Changes to legal name or registered email cannot be made directly online; students must submit identification proof to the Registrar Office through Help > Administrative Request."
+  }
+]

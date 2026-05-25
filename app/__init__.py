@@ -1,0 +1,1 @@
+"""CampusConnect RAG assistant package."""
