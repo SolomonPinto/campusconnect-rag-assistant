@@ -84,9 +84,10 @@ Only chunks scoring at least `SIMILARITY_THRESHOLD=0.65` are passed into the
 prompt. The value is configurable in `.env` so it can be tuned after observing
 scores for the chosen documents and test questions.
 
-Simple greetings and new-student introductions are answered with a non-factual
-welcome message and supported-topic menu. Questions that request information
-still go through embedding retrieval and grounding before an answer is produced.
+Simple greetings, acknowledgements, thanks, goodbyes, and new-student
+introductions are answered with non-factual conversational messages and the
+supported-topic menu. Questions that request information still go through
+embedding retrieval and grounding before an answer is produced.
 
 ## Prompt Design
 

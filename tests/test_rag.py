@@ -3,7 +3,14 @@ from pathlib import Path
 import numpy as np
 
 from app.config import Settings
-from app.services.rag import FALLBACK_REPLY, WELCOME_REPLY, RagAssistant
+from app.services.rag import (
+    ACKNOWLEDGEMENT_REPLY,
+    FALLBACK_REPLY,
+    GOODBYE_REPLY,
+    THANKS_REPLY,
+    WELCOME_REPLY,
+    RagAssistant,
+)
 from app.vectorstore.memory_store import Chunk, InMemoryVectorStore, SearchResult
 
 
@@ -75,6 +82,25 @@ def test_social_greeting_receives_welcome_without_document_retrieval() -> None:
     assert response.reply == WELCOME_REPLY
     assert response.retrievedChunks == 0
     assert response.sources == []
+    assert assistant.vector_store.search_calls == 0
+    assert gemini.answer_calls == 0
+
+
+def test_conversational_acknowledgement_does_not_trigger_document_search() -> None:
+    assistant, gemini = create_assistant([])
+
+    response = assistant.chat("session-new-student", "yes")
+
+    assert response.reply == ACKNOWLEDGEMENT_REPLY
+    assert assistant.vector_store.search_calls == 0
+    assert gemini.answer_calls == 0
+
+
+def test_social_thanks_and_goodbye_receive_friendly_replies() -> None:
+    assistant, gemini = create_assistant([])
+
+    assert assistant.chat("session-3", "thank you").reply == THANKS_REPLY
+    assert assistant.chat("session-3", "bye").reply == GOODBYE_REPLY
     assert assistant.vector_store.search_calls == 0
     assert gemini.answer_calls == 0
 
