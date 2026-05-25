@@ -14,6 +14,6 @@ services:
       - key: TOP_K
         value: "3"
       - key: SIMILARITY_THRESHOLD
-        value: "0.62"
+        value: "0.65"
       - key: REQUEST_TIMEOUT_MS
         value: "30000"

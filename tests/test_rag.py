@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 
 from app.config import Settings
-from app.services.rag import FALLBACK_REPLY, RagAssistant
+from app.services.rag import FALLBACK_REPLY, WELCOME_REPLY, RagAssistant
 from app.vectorstore.memory_store import Chunk, InMemoryVectorStore, SearchResult
 
 
@@ -13,7 +13,7 @@ def make_settings() -> Settings:
         chat_model="test-chat",
         embedding_model="test-embedding",
         top_k=3,
-        similarity_threshold=0.62,
+        similarity_threshold=0.65,
         history_pairs=4,
         request_timeout_ms=30000,
         docs_path=Path("docs.json"),
@@ -34,8 +34,10 @@ class FakeGemini:
 class FakeVectorStore:
     def __init__(self, results: list[SearchResult]) -> None:
         self.results = results
+        self.search_calls = 0
 
     def search(self, query: str) -> list[SearchResult]:
+        self.search_calls += 1
         return self.results
 
 
@@ -60,6 +62,20 @@ def test_fallback_does_not_call_llm_when_similarity_is_below_threshold() -> None
 
     assert response.reply == FALLBACK_REPLY
     assert response.retrievedChunks == 0
+    assert gemini.answer_calls == 0
+
+
+def test_social_greeting_receives_welcome_without_document_retrieval() -> None:
+    assistant, gemini = create_assistant([])
+
+    response = assistant.chat(
+        "session-new-student", "hai i am solomon i am new to this collage"
+    )
+
+    assert response.reply == WELCOME_REPLY
+    assert response.retrievedChunks == 0
+    assert response.sources == []
+    assert assistant.vector_store.search_calls == 0
     assert gemini.answer_calls == 0
 
 

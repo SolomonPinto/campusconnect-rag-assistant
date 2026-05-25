@@ -14,6 +14,7 @@ answer from Gemini.
 - Top-3 retrieval and configurable similarity threshold
 - Gemini LLM generation only after sufficient context is retrieved
 - Four-pair per-session conversation history
+- Friendly welcome handling for greetings without inventing knowledge-base facts
 - Token usage return when the Gemini response provides usage metadata
 - Structured validation/provider errors, explicit request timeouts, and
   retrieval/token-usage logging
@@ -79,9 +80,13 @@ cosine_similarity(query, chunk) =
 ```
 
 Results are sorted in descending order and the top `TOP_K=3` are considered.
-Only chunks scoring at least `SIMILARITY_THRESHOLD=0.62` are passed into the
+Only chunks scoring at least `SIMILARITY_THRESHOLD=0.65` are passed into the
 prompt. The value is configurable in `.env` so it can be tuned after observing
 scores for the chosen documents and test questions.
+
+Simple greetings and new-student introductions are answered with a non-factual
+welcome message and supported-topic menu. Questions that request information
+still go through embedding retrieval and grounding before an answer is produced.
 
 ## Prompt Design
 

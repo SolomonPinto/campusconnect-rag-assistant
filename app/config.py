@@ -29,7 +29,7 @@ def get_settings() -> Settings:
         chat_model=os.getenv("GEMINI_CHAT_MODEL", "gemini-2.5-flash"),
         embedding_model=os.getenv("GEMINI_EMBEDDING_MODEL", "gemini-embedding-001"),
         top_k=int(os.getenv("TOP_K", "3")),
-        similarity_threshold=float(os.getenv("SIMILARITY_THRESHOLD", "0.62")),
+        similarity_threshold=float(os.getenv("SIMILARITY_THRESHOLD", "0.65")),
         history_pairs=int(os.getenv("HISTORY_PAIRS", "4")),
         request_timeout_ms=int(os.getenv("REQUEST_TIMEOUT_MS", "30000")),
         docs_path=BASE_DIR / "docs.json",
