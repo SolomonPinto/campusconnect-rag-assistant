@@ -241,10 +241,10 @@ Safe fallback when the question is outside the knowledge base:
 
 ```text
 GitHub Repository:
-https://github.com/<username>/<repository-name>
+https://github.com/SolomonPinto/campusconnect-rag-assistant
 
 Live Application:
-https://<your-render-service>.onrender.com
+https://campusconnect-rag-assistant.onrender.com
 ```
 
 ## Gemini References
