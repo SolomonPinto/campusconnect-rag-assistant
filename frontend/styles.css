@@ -146,6 +146,10 @@ h1 {
   padding: 23px 28px;
 }
 
+.chat-header > div:nth-child(2) {
+  flex: 1;
+}
+
 .status-dot {
   background: var(--forest-light);
   border: 6px solid #e4efe8;
@@ -169,6 +173,22 @@ h1 {
   color: var(--muted);
   font-size: 0.76rem;
   margin-top: 3px;
+}
+
+.logout-button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--forest);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+.logout-button:hover {
+  background: #edf4ef;
 }
 
 .messages {
@@ -328,6 +348,150 @@ h1 {
   width: 1px;
 }
 
+.login-layout {
+  display: grid;
+  grid-template-columns: minmax(350px, 470px) minmax(380px, 470px);
+  align-items: center;
+  justify-content: center;
+  gap: 86px;
+  min-height: 100vh;
+  padding: 44px;
+}
+
+.login-brand .intro {
+  max-width: 385px;
+  margin-bottom: 36px;
+}
+
+.trust-list {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+  max-width: 385px;
+  padding-top: 22px;
+}
+
+.trust-list p {
+  align-items: center;
+  display: flex;
+  gap: 11px;
+  margin: 13px 0;
+}
+
+.trust-list span {
+  background: var(--forest-light);
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
+.login-card {
+  background: var(--white);
+  border: 1px solid #e7e4dc;
+  border-radius: 27px;
+  box-shadow: var(--shadow);
+  padding: 45px 44px 39px;
+}
+
+.login-badge {
+  background: #e8f0e9;
+  border-radius: 999px;
+  color: var(--forest);
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  margin-bottom: 21px;
+  padding: 9px 14px;
+  text-transform: uppercase;
+}
+
+.login-card h2 {
+  color: var(--forest);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2.35rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 13px;
+}
+
+.login-copy {
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.55;
+  margin: 0 0 31px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.login-form label {
+  color: var(--ink);
+  font-size: 0.77rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.login-form input {
+  background: #f8f7f3;
+  border: 1px solid #dad7ce;
+  border-radius: 12px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.88rem;
+  outline: none;
+  padding: 16px 17px;
+}
+
+.login-form input:focus {
+  border-color: var(--forest-light);
+  box-shadow: 0 0 0 3px rgba(34, 113, 95, 0.1);
+}
+
+.login-submit {
+  align-items: center;
+  background: var(--forest);
+  border: 0;
+  border-radius: 13px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 25px;
+  padding: 17px;
+}
+
+.login-submit:hover {
+  background: #103e37;
+}
+
+.login-submit svg {
+  fill: none;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.7;
+  width: 18px;
+}
+
+.login-note {
+  border-top: 1px solid #ece9e1;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  margin: 29px 0 0;
+  padding-top: 21px;
+  text-align: center;
+}
+
 @keyframes bounce {
   0%,
   80%,
@@ -360,5 +524,27 @@ h1 {
   .chat-panel {
     height: calc(100vh - 265px);
     min-height: 500px;
+  }
+
+  .login-layout {
+    display: block;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+
+  .login-brand {
+    margin-bottom: 30px;
+  }
+
+  .trust-list {
+    display: none;
+  }
+
+  .login-card {
+    padding: 34px 26px 28px;
+  }
+
+  .header-subtitle {
+    max-width: 185px;
   }
 }

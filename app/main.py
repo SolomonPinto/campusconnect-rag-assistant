@@ -62,6 +62,11 @@ async def provider_error_handler(request: Request, exc: ProviderError) -> JSONRe
 
 
 @app.get("/", include_in_schema=False)
+def login_page() -> FileResponse:
+    return FileResponse(frontend_dir / "login.html")
+
+
+@app.get("/chat", include_in_schema=False)
 def index() -> FileResponse:
     return FileResponse(frontend_dir / "index.html")
 

@@ -13,6 +13,16 @@ def test_health_endpoint() -> None:
     assert response.json() == {"status": "healthy"}
 
 
+def test_login_and_chat_pages_are_served() -> None:
+    login_response = client.get("/")
+    chat_response = client.get("/chat")
+
+    assert login_response.status_code == 200
+    assert "Welcome back" in login_response.text
+    assert chat_response.status_code == 200
+    assert "Knowledge Base Assistant" in chat_response.text
+
+
 def test_missing_message_returns_structured_error() -> None:
     response = client.post("/api/chat", json={"sessionId": "demo-session"})
 

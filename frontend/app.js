@@ -5,6 +5,15 @@ const messages = document.getElementById("messages");
 const loading = document.getElementById("loading");
 const suggestions = document.getElementById("suggestions");
 const newChatButton = document.getElementById("new-chat-button");
+const logoutButton = document.getElementById("logout-button");
+const studentDisplayName = document.getElementById("student-display-name");
+
+const studentProfile = JSON.parse(localStorage.getItem("studentProfile") || "null");
+if (!studentProfile) {
+  window.location.replace("/");
+} else {
+  studentDisplayName.textContent = studentProfile.name.split(" ")[0];
+}
 
 function createSessionId() {
   if (window.crypto && crypto.randomUUID) {
@@ -99,4 +108,11 @@ newChatButton.addEventListener("click", async () => {
   messages.innerHTML = "";
   addMessage("New conversation started. What would you like to know?", "assistant");
   input.focus();
+});
+
+logoutButton.addEventListener("click", async () => {
+  await fetch(`/api/chat/${encodeURIComponent(sessionId)}`, { method: "DELETE" });
+  localStorage.removeItem("studentProfile");
+  localStorage.removeItem("sessionId");
+  window.location.href = "/";
 });

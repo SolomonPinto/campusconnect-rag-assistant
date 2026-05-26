@@ -9,6 +9,7 @@ answer from Gemini.
 
 - FastAPI backend with `POST /api/chat` and `GET /health`
 - Basic responsive HTML/CSS/JavaScript frontend served by the backend
+- Student sign-in screen with local browser session and logout flow
 - Eight-document JSON knowledge base with chunk metadata
 - Real Gemini embeddings and cosine-similarity vector retrieval
 - Top-3 retrieval and configurable similarity threshold
@@ -113,10 +114,14 @@ limits, and timeouts return structured API errors.
 |   |   `-- rag.py
 |   `-- vectorstore/memory_store.py
 |-- frontend/
+|   |-- login.html
+|   |-- login.js
 |   |-- index.html
 |   |-- styles.css
 |   `-- app.js
 |-- screenshots/
+|   |-- login-page.png
+|   |-- signed-in-chat.png
 |   |-- chat-interface.png
 |   |-- chat-interface-mobile.png
 |   |-- grounded-answer.png
@@ -162,6 +167,10 @@ uvicorn app.main:app --reload
 ```
 
 Open `http://127.0.0.1:8000` in a browser. Never commit `.env` or an API key.
+
+The login screen is a frontend demo session used to personalize and gate the
+chat interface in the browser; it does not claim JWT authentication or secure
+backend account authorization.
 
 ## API Examples
 
@@ -226,6 +235,14 @@ Manual test questions:
 The Gemini API key remains on the server; the frontend never receives it.
 
 ## Screenshots
+
+Student sign-in screen:
+
+![CampusConnect student sign-in screen](screenshots/login-page.png)
+
+Signed-in assistant view with personalized header and logout:
+
+![CampusConnect signed-in chat view](screenshots/signed-in-chat.png)
 
 Desktop interface:
 
